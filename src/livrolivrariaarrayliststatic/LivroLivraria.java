@@ -10,7 +10,7 @@ public class LivroLivraria {
 	
 	//construtores
 	public LivroLivraria() {} //default
-
+	//construtor sobrecarregado
 	public LivroLivraria(String titulo, String autor, int isbn, String genero, float preco) {
 		super();
 		this.titulo = titulo;
@@ -68,7 +68,4 @@ public class LivroLivraria {
 					String.format("\nPreço R$ %.2f \n", this.preco);
 	}
 	
-	
-	
-
 }

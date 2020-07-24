@@ -16,7 +16,7 @@ public class Acervo {
 		listaLivros.add(l);
 	}
 	
-	//lista os dados de todos os objetos da lsita
+	//lista os dados de todos os objetos da lista
 	public static String listar() {
 		String saida =  "";
 		int i = 1;
@@ -44,23 +44,20 @@ public class Acervo {
 		return qtd;
 	}
 	
-	
-	//Pesquisar por faixa de preço.  Sobrecarga de métodos, pq há 2 métodos pesquisar.
-	
+	//Sobrecarga de métodos, pq há 2 métodos pesquisar.
+	//Pesquisar por faixa de preço.  
 	public static int pesquisar(double faixaInicial, double faixaFinal) {
 		int qtdeLivrosNaFaixaDePreco = 0;
-		double precoDoLivro = 0;
 		
-		for (LivroLivraria l: listaLivros) {
-			precoDoLivro = l.getPreco();
-			if (precoDoLivro >= faixaInicial && precoDoLivro <= faixaFinal) {
+		for (LivroLivraria l: listaLivros) {			
+			if (l.getPreco() >= faixaInicial && l.getPreco() <= faixaFinal) {
 				qtdeLivrosNaFaixaDePreco++;
 			}
 		}
 		return qtdeLivrosNaFaixaDePreco;
 	}
 	
-	//Remove um livro pelo título
+	//Remove um objeto livro pelo título
 	public static boolean remover(String titulo) {		
 		for (LivroLivraria l: listaLivros) {
 			if (l.getTitulo().equalsIgnoreCase(titulo)) {
@@ -79,4 +76,5 @@ public class Acervo {
 		}
 		return valorTotalAcervo;
 	}
+	
 }

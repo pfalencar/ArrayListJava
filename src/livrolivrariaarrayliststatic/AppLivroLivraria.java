@@ -3,32 +3,29 @@ package livrolivrariaarrayliststatic;
 import java.util.Scanner;
 
 public class AppLivroLivraria {
-
 	public static void main(String[] args) {
-
 		Scanner entrada = new Scanner(System.in);
 		Scanner entradaString = new Scanner(System.in);
 		
-		int menu = 0;
+		int menu;
 		double vInicial, vFinal;
 		//referência para a classe LivroLivraria
-		LivroLivraria objetoLivro = null;
+		LivroLivraria objetoLivro;
 		String titulo, autor, genero; 
 		float preco;
 		int isbn;
 		
 		do {
 			exibirMenu();
-			menu = entrada.nextInt();
-			
+			menu = entrada.nextInt();			
 			
 			switch(menu) {
 				case 1:
 					System.out.println("============== ADICIONANDO LIVRO ==============");
 					
-					System.out.println("Digite o título do livro: ");
+					System.out.println("Digite o título: ");
 					titulo = entradaString.nextLine();
-					System.out.println("Digite o autor do livro: ");
+					System.out.println("Digite o autor: ");
 					autor = entradaString.nextLine();
 					System.out.println("Digite o gênero do livro: ");
 					genero = entradaString.nextLine();
@@ -45,16 +42,13 @@ public class AppLivroLivraria {
 					
 					break;
 					
-					
 				case 2:
-					System.out.println("============== LISTANDO LIVROS ================");				
+					System.out.println("============== LISTAGEM DE LIVROS ================");		
 					System.out.println( Acervo.listar() );				
 					break;
 					
-					
-				case 3:
-					
-					System.out.println("================= REMOVENDO LIVRO ===================");
+				case 3:					
+					System.out.println("================ EXCLUSÃO DO LIVRO ===================");
 					System.out.println("Digite o título do livro a ser removido: ");
 					titulo = entradaString.nextLine();
 					
@@ -66,70 +60,56 @@ public class AppLivroLivraria {
 						}
 					} else {
 						System.out.println("Não existem livros no acervo.");
-					}
+					}					
+					break;					
 					
-					break;
+				case 4:					
+					System.out.println("=========== PESQUISAR POR GÊNERO ============");
 					
-					
-				case 4:
-					
-					System.out.println("=========== PESQUISANDO POR GÊNERO ============");
-					
-					System.out.println("Digite o gênero do livro a ser pesquisado: ");
+					System.out.println("Digite o gênero do livro: ");
 					genero = entradaString.nextLine();
 					System.out.println("Existem " + Acervo.pesquisar(genero) + " livro(s) do gênero " + genero );
-					
-					break;
-					
+					break;					
 					
 				case 5:
-					System.out.println("======== PESQUISANDO POR FAIXA DE PREÇO ==========");
+					System.out.println("======== PESQUISAR POR FAIXA DE PREÇO ==========");
 					
-					System.out.println("Digite a faixa inicial e a final do livro a ser pesquisado: ");
+					System.out.println("Digite a faixa inicial e a final: ");
 					vInicial = entrada.nextDouble();
 					vFinal = entrada.nextDouble();
 					
 					System.out.println("Existem " + Acervo.pesquisar(vInicial, vFinal) + " livro(s) com preço entre " 
 							+ String.format("R$ %.2f e R$ %.2f \n", vInicial,  vFinal) );
-					break;
-					
+					break;					
 					
 				case 6: 
-					System.out.println("========== CALCULANDO TOTAL ACERVO ============");
+					System.out.println("========== TOTAL EM R$ DE LIVROS DO ACERVO ============");
 					System.out.println( "O total é " + 
 							String.format("R$ %.2f \n", Acervo.calcularTotalAcervo()) );
-					break;
-					
+					break;					
 					
 				case 7:
-					System.out.println("================== SAIR ====================");
 					System.out.println("Saindo...");
-					entrada.close();
-					entradaString.close();
-					break;
-					
+					break;					
 					
 				default:
-					System.out.println("========= OPÇÃO DE MENU INVÁLIDA ===========");
-					break;
+					System.out.println("== OPÇÃO DE MENU INVÁLIDA ==");
 			}//fim switch
 			
 		} while (menu != 7);		
 		
 		
-		
-		
 	}//fim main
 	
 	public static void exibirMenu() {		
-			System.out.println("================== MENU ====================");
-			System.out.println("1-Cadastrar Livro");
-			System.out.println("2-Listar Livro");
-			System.out.println("3-Remover");
-			System.out.println("4-Pesquisar por gênero");
-			System.out.println("5-Pesquisar por preço");
-			System.out.println("6-Calcular Total Acervo");
-			System.out.println("7-Sair");	
+			System.out.println("========= LIVRO LIVRARIA ==========");
+			System.out.println("1 - CADASTRAR");
+			System.out.println("2 - LISTAR");
+			System.out.println("3 - EXCLUIR LIVRO");
+			System.out.println("4 - PESQUISAR POR GÊNERO");
+			System.out.println("5 - PESQUISAR POR FAIXA DE PREÇO");
+			System.out.println("6 - CALCULAR TOTAL DO ACERVO");
+			System.out.println("7 - SAIR");	
 			System.out.println("====> Escolha uma opção: ");
 	}
 
